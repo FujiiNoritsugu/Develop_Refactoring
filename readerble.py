@@ -1,4 +1,7 @@
-def print_str(param_str, column_count, row_count):
+import numpy as np
+
+
+def print_string(param_str, column_count, row_count):
     len_str = len(param_str)
 
     if not (5 <= len_str <= 10):
@@ -15,4 +18,7 @@ def print_str(param_str, column_count, row_count):
 
 
 if __name__ == '__main__':
-    print_str('abcef', 3, 5)
+    print_string(
+        'abcef', np.random.randint(
+            0, 10), np.random.randint(
+            0, 10))
