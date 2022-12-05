@@ -7,10 +7,11 @@ def print_str(param_str, column_count, row_count):
     if not (param_str.isalpha() and param_str.isascii()):
         raise ('文字列はa～z, A～Zにしてください。')
 
-    for _ in column_count:
-        result += param_str
-    for _ in row_count:
-        print(result)
+    result_str = ''
+    for _ in range(column_count):
+        result_str += param_str
+    for _ in range(row_count):
+        print(result_str)
 
 
 if __name__ == '__main__':
