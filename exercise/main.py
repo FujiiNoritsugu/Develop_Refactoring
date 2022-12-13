@@ -18,20 +18,44 @@
 
 '''
 from sys import argv
+from datetime import datetime
 
 
 def main(arg):
-    if len(arg) != 7:
-        print('曜日毎のタスクを７つ入力してください')
 
-    print(f'月曜日：{arg[0]}')
-    print(f'火曜日：{arg[1]}')
-    print(f'水曜日：{arg[2]}')
-    print(f'木曜日：{arg[3]}')
-    print(f'金曜日：{arg[4]}')
-    print(f'土曜日：{arg[5]}')
-    print(f'日曜日：{arg[6]}')
+    weekday = datetime.now().weekday()
+
+    tasks = []
+    for index in arg:
+        tasks.append(index)
+
+    for index in range(weekday, weekday + 7):
+
+        if index >= 7:
+            index = index - 7
+
+        if index == 0:
+            title = '月曜日'
+        elif index == 1:
+            title = '火曜日'
+        elif index == 2:
+            title = '水曜日'
+        elif index == 3:
+            title = '木曜日'
+        elif index == 4:
+            title = '金曜日'
+        elif index == 5:
+            title = '土曜日'
+        elif index == 6:
+            title = '日曜日'
+
+        print(f'{title}:{tasks[index]}')
 
 
 if __name__ == '__main__':
-    main(argv[2:])
+
+    if len(argv) != 8:
+        print('曜日毎のタスクを７つ入力してください')
+        exit(0)
+
+    main(argv[1:])
